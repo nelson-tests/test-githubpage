@@ -53,3 +53,4 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git add resume.pdf
           git commit -m "Generated PDF"
+          git push
