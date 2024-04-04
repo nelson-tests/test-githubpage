@@ -1,6 +1,5 @@
 name: 'Generate PDF'
 
-
 on:
   workflow_dispatch:
 
