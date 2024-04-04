@@ -1,10 +1,13 @@
 const puppeteer = require('puppeteer');
+const path = require('path');
 
 (async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
-    await page.goto('file:///path/to/your/src/index.html', {waitUntil: 'networkidle2'});
+    const indexPath = path.resolve(__dirname, './src/index.html');
+
+    await page.goto(`file://${indexPath}`, {waitUntil: 'networkidle2'});
 
     await page.pdf({path: 'resume.pdf', format: 'A4'});
 
