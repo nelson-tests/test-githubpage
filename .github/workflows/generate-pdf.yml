@@ -6,14 +6,14 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - 'src/**'
+    paths:
+      - 'src/**'
 
   pull_request:
     branches:
       - main
-    # paths:
-    #   - 'src/**'
+    paths:
+      - 'src/**'
 
 jobs:
   build:
@@ -46,3 +46,8 @@ jobs:
         with:
           name: generated-pdf
           path: resume.pdf
+
+      - name: 'Upload PDF to Artifacts'
+        run: |
+          git add resume.pdf
+          git commit -m "Generated PDF"
